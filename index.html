@@ -27,6 +27,7 @@
 
     header {
       margin-top: 2em;
+      width: 100%;
     }
 
     .logo {
@@ -65,80 +66,43 @@
       transform: scale(1.05);
     }
 
-    /* Slideshow Container */
-    .slideshow-container {
-      position: relative;
-      max-width: 280px;
-      margin: 2.5em auto;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    /* Scrollable gallery */
+    .screenshot-scroll {
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      gap: 15px;
+      padding: 20px;
+      margin-top: 2em;
+      justify-content: center;
+      -webkit-overflow-scrolling: touch;
     }
 
-    .slide {
-      display: none;
-      width: 100%;
-      animation: fade 1s ease-in-out;
+    .screenshot-scroll::-webkit-scrollbar {
+      height: 8px;
     }
 
-    .slide img {
-      width: 100%;
-      border-radius: 20px;
-    }
-
-    @keyframes fade {
-      from { opacity: 0.4; }
-      to { opacity: 1; }
-    }
-
-    /* Navigation arrows */
-    .prev, .next {
-      cursor: pointer;
-      position: absolute;
-      top: 50%;
-      width: auto;
-      padding: 12px;
-      margin-top: -22px;
-      color: white;
-      font-weight: bold;
-      font-size: 18px;
-      border-radius: 0 3px 3px 0;
-      user-select: none;
-      transition: background 0.3s;
-    }
-
-    .next {
-      right: 0;
-      border-radius: 3px 0 0 3px;
-    }
-
-    .prev:hover, .next:hover {
+    .screenshot-scroll::-webkit-scrollbar-thumb {
       background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 10px;
     }
 
-    /* Dots */
-    .dots {
-      text-align: center;
-      margin-top: 10px;
+    .screenshot {
+      flex: 0 0 auto;
+      width: 250px;
+      border-radius: 20px;
+      scroll-snap-align: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
     }
 
-    .dot {
-      cursor: pointer;
-      height: 12px;
-      width: 12px;
-      margin: 0 3px;
-      background-color: rgba(255, 255, 255, 0.6);
-      border-radius: 50%;
-      display: inline-block;
-      transition: background-color 0.3s ease;
-    }
-
-    .active, .dot:hover {
-      background-color: white;
+    .screenshot:hover {
+      transform: scale(1.05);
     }
 
     footer {
-      margin-top: 3em;
+      margin: 3em 0 1em 0;
       font-size: 0.9em;
       opacity: 0.8;
     }
@@ -152,8 +116,8 @@
       h1 {
         font-size: 2.2em;
       }
-      .slideshow-container {
-        max-width: 200px;
+      .screenshot {
+        width: 180px;
       }
     }
   </style>
@@ -169,68 +133,18 @@
     <!-- ✅ Download button -->
     <a href="https://play.google.com/store/apps/details?id=com.yourapp.id" class="download-btn">Download Now</a>
 
-    <!-- ✅ Slideshow -->
-    <div class="slideshow-container">
-      <div class="slide fade">
-        <img src="img/screenshot1.png" alt="Screenshot 1">
-      </div>
-      <div class="slide fade">
-        <img src="img/screenshot2.png" alt="Screenshot 2">
-      </div>
-      <div class="slide fade">
-        <img src="img/screenshot3.png" alt="Screenshot 3">
-      </div>
-      <div class="slide fade">
-        <img src="img/screenshot4.png" alt="Screenshot 4">
-      </div>
-      <div class="slide fade">
-        <img src="img/screenshot5.png" alt="Screenshot 5">
-      </div>
-
-      <!-- Navigation buttons -->
-      <a class="prev" onclick="plusSlides(-1)">❮</a>
-      <a class="next" onclick="plusSlides(1)">❯</a>
-    </div>
-
-    <!-- Dots -->
-    <div class="dots">
-      <span class="dot" onclick="currentSlide(1)"></span>
-      <span class="dot" onclick="currentSlide(2)"></span>
-      <span class="dot" onclick="currentSlide(3)"></span>
-      <span class="dot" onclick="currentSlide(4)"></span>
-      <span class="dot" onclick="currentSlide(5)"></span>
+    <!-- ✅ Scrollable Screenshot Gallery -->
+    <div class="screenshot-scroll">
+      <img src="img/screenshot1.png" alt="Screenshot 1" class="screenshot">
+      <img src="img/screenshot2.png" alt="Screenshot 2" class="screenshot">
+      <img src="img/screenshot3.png" alt="Screenshot 3" class="screenshot">
+      <img src="img/screenshot4.png" alt="Screenshot 4" class="screenshot">
+      <img src="img/screenshot5.png" alt="Screenshot 5" class="screenshot">
     </div>
   </header>
 
   <footer>
     <p>© 2025 Walla. All rights reserved.</p>
   </footer>
-
-  <script>
-    let slideIndex = 0;
-    showSlides();
-
-    function plusSlides(n) {
-      slideIndex += n - 1;
-      showSlides();
-    }
-
-    function currentSlide(n) {
-      slideIndex = n - 1;
-      showSlides();
-    }
-
-    function showSlides() {
-      let slides = document.getElementsByClassName("slide");
-      let dots = document.getElementsByClassName("dot");
-      for (let i = 0; i < slides.length; i++) slides[i].style.display = "none";
-      slideIndex++;
-      if (slideIndex > slides.length) slideIndex = 1;
-      for (let i = 0; i < dots.length; i++) dots[i].className = dots[i].className.replace(" active", "");
-      slides[slideIndex - 1].style.display = "block";
-      dots[slideIndex - 1].className += " active";
-      setTimeout(showSlides, 3000); // Change image every 3s
-    }
-  </script>
 </body>
 </html>
