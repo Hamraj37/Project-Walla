@@ -80,7 +80,7 @@
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
     }
 
-    /* Power and volume buttons (side view) */
+    /* Side buttons */
     .android-frame::before {
       content: "";
       position: absolute;
@@ -134,10 +134,11 @@
       border-radius: 50%;
     }
 
-    /* Looping screenshot animation inside phone */
+    /* ✅ Looping scroll inside phone */
     .screen-scroll {
       display: flex;
       width: calc(100% * 10);
+      height: 100%;
       animation: scrollLoop 25s linear infinite;
     }
 
@@ -145,11 +146,13 @@
       animation-play-state: paused;
     }
 
+    /* ✅ Fit screenshots inside frame */
     .screenshot {
       flex: 0 0 100%;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
+      background: #000;
       border-radius: 26px;
     }
 
@@ -186,16 +189,15 @@
 </head>
 <body>
   <header>
-    <!-- ✅ Logo from img folder -->
+    <!-- ✅ Logo -->
     <img src="img/logo.png" alt="App Logo" class="logo">
 
     <h1>Walla</h1>
     <p>Beautiful wallpapers. Fresh every day.</p>
 
-    <!-- ✅ Download button -->
     <a href="https://play.google.com/store/apps/details?id=com.yourapp.id" class="download-btn">Download Now</a>
 
-    <!-- ✅ Android phone frame with looping screenshots -->
+    <!-- ✅ Android frame -->
     <div class="android-frame">
       <div class="camera">
         <div class="camera-dot"></div>
@@ -209,7 +211,7 @@
         <img src="img/screenshot3.png" alt="Screenshot 3" class="screenshot">
         <img src="img/screenshot4.png" alt="Screenshot 4" class="screenshot">
         <img src="img/screenshot5.png" alt="Screenshot 5" class="screenshot">
-        <!-- Duplicate for smooth loop -->
+        <!-- Duplicate for loop -->
         <img src="img/screenshot1.png" alt="Screenshot 1" class="screenshot">
         <img src="img/screenshot2.png" alt="Screenshot 2" class="screenshot">
         <img src="img/screenshot3.png" alt="Screenshot 3" class="screenshot">
