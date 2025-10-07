@@ -103,7 +103,7 @@
       border-radius: 3px;
     }
 
-    /* Front camera + sensors */
+    /* Front camera */
     .camera {
       position: absolute;
       top: 10px;
@@ -134,19 +134,17 @@
       border-radius: 50%;
     }
 
-    /* ✅ Looping scroll inside phone */
+    /* ✅ Manual scroll inside phone */
     .screen-scroll {
       display: flex;
-      width: calc(100% * 10);
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      width: 100%;
       height: 100%;
-      animation: scrollLoop 25s linear infinite;
+      scroll-behavior: smooth;
     }
 
-    .screen-scroll:hover {
-      animation-play-state: paused;
-    }
-
-    /* ✅ Fit screenshots inside frame */
     .screenshot {
       flex: 0 0 100%;
       width: 100%;
@@ -154,15 +152,11 @@
       object-fit: contain;
       background: #000;
       border-radius: 26px;
+      scroll-snap-align: start;
     }
 
-    @keyframes scrollLoop {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-50%);
-      }
+    .screen-scroll::-webkit-scrollbar {
+      display: none; /* hide scrollbar */
     }
 
     footer {
@@ -206,12 +200,6 @@
       </div>
 
       <div class="screen-scroll">
-        <img src="img/screenshot1.png" alt="Screenshot 1" class="screenshot">
-        <img src="img/screenshot2.png" alt="Screenshot 2" class="screenshot">
-        <img src="img/screenshot3.png" alt="Screenshot 3" class="screenshot">
-        <img src="img/screenshot4.png" alt="Screenshot 4" class="screenshot">
-        <img src="img/screenshot5.png" alt="Screenshot 5" class="screenshot">
-        <!-- Duplicate for loop -->
         <img src="img/screenshot1.png" alt="Screenshot 1" class="screenshot">
         <img src="img/screenshot2.png" alt="Screenshot 2" class="screenshot">
         <img src="img/screenshot3.png" alt="Screenshot 3" class="screenshot">
