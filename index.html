@@ -28,6 +28,7 @@
     header {
       margin-top: 2em;
       width: 100%;
+      overflow: hidden;
     }
 
     .logo {
@@ -66,39 +67,56 @@
       transform: scale(1.05);
     }
 
-    /* Scrollable gallery */
-    .screenshot-scroll {
+    /* ✅ Phone mockup container */
+    .phone-frame {
+      position: relative;
+      width: 280px;
+      height: 560px;
+      border: 12px solid #111;
+      border-radius: 40px;
+      background: #000;
+      margin: 2.5em auto;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    }
+
+    .phone-frame::before {
+      content: "";
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 6px;
+      background: #333;
+      border-radius: 3px;
+    }
+
+    .screen-scroll {
       display: flex;
-      overflow-x: auto;
-      scroll-behavior: smooth;
-      scroll-snap-type: x mandatory;
-      gap: 15px;
-      padding: 20px;
-      margin-top: 2em;
-      justify-content: center;
-      -webkit-overflow-scrolling: touch;
+      width: calc(100% * 10);
+      animation: scrollLoop 25s linear infinite;
     }
 
-    .screenshot-scroll::-webkit-scrollbar {
-      height: 8px;
-    }
-
-    .screenshot-scroll::-webkit-scrollbar-thumb {
-      background-color: rgba(255, 255, 255, 0.3);
-      border-radius: 10px;
+    .screen-scroll:hover {
+      animation-play-state: paused;
     }
 
     .screenshot {
-      flex: 0 0 auto;
-      width: 250px;
-      border-radius: 20px;
-      scroll-snap-align: center;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease;
+      flex: 0 0 100%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 25px;
     }
 
-    .screenshot:hover {
-      transform: scale(1.05);
+    @keyframes scrollLoop {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
     }
 
     footer {
@@ -116,8 +134,9 @@
       h1 {
         font-size: 2.2em;
       }
-      .screenshot {
-        width: 180px;
+      .phone-frame {
+        width: 220px;
+        height: 440px;
       }
     }
   </style>
@@ -133,13 +152,21 @@
     <!-- ✅ Download button -->
     <a href="https://play.google.com/store/apps/details?id=com.yourapp.id" class="download-btn">Download Now</a>
 
-    <!-- ✅ Scrollable Screenshot Gallery -->
-    <div class="screenshot-scroll">
-      <img src="img/screenshot1.png" alt="Screenshot 1" class="screenshot">
-      <img src="img/screenshot2.png" alt="Screenshot 2" class="screenshot">
-      <img src="img/screenshot3.png" alt="Screenshot 3" class="screenshot">
-      <img src="img/screenshot4.png" alt="Screenshot 4" class="screenshot">
-      <img src="img/screenshot5.png" alt="Screenshot 5" class="screenshot">
+    <!-- ✅ Phone mockup with looping screenshots -->
+    <div class="phone-frame">
+      <div class="screen-scroll">
+        <img src="img/screenshot1.png" alt="Screenshot 1" class="screenshot">
+        <img src="img/screenshot2.png" alt="Screenshot 2" class="screenshot">
+        <img src="img/screenshot3.png" alt="Screenshot 3" class="screenshot">
+        <img src="img/screenshot4.png" alt="Screenshot 4" class="screenshot">
+        <img src="img/screenshot5.png" alt="Screenshot 5" class="screenshot">
+        <!-- duplicate for smooth loop -->
+        <img src="img/screenshot1.png" alt="Screenshot 1" class="screenshot">
+        <img src="img/screenshot2.png" alt="Screenshot 2" class="screenshot">
+        <img src="img/screenshot3.png" alt="Screenshot 3" class="screenshot">
+        <img src="img/screenshot4.png" alt="Screenshot 4" class="screenshot">
+        <img src="img/screenshot5.png" alt="Screenshot 5" class="screenshot">
+      </div>
     </div>
   </header>
 
