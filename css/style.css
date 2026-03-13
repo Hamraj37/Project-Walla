@@ -263,7 +263,17 @@ a.download-btn:hover {
 }
 
 /* Side buttons removed visually or simplified */
-.android-frame::before, .android-frame::after { display: none; }
+.android-frame::before { display: none; }
+
+/* Reflection Overlay */
+.android-frame::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.05) 40%, transparent 50%);
+  pointer-events: none;
+  z-index: 10;
+}
 
 /* Camera */
 .camera {
@@ -284,6 +294,10 @@ a.download-btn:hover {
   width: 100%; height: 100%;
   /* Disabled manual scroll for auto slideshow */
   animation: slideshow 16s infinite cubic-bezier(0.45, 0, 0.55, 1);
+}
+
+.android-frame:hover .screen-scroll {
+  animation-play-state: paused;
 }
 
 .screenshot {
