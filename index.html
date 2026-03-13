@@ -6,18 +6,47 @@
   <title>Walla – Wallpaper App</title>
   <link rel="icon" type="image/png" href="img/logo.png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600;700&display=swap" rel="stylesheet">
   <!-- ✅ Link external CSS -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header>
-    <!-- ✅ Logo -->
-    <img src="img/logo.png" alt="App Logo" class="logo">
+  <!-- ✅ Loading Screen -->
+  <div id="loader">
+    <div class="spinner"></div>
+    <div class="loading-text">INITIALIZING...</div>
+  </div>
 
-    <h1>Walla</h1>
-    <p>Static or live - choose your vibe.🔥</p>
+  <!-- ✅ Parallax Wrapper for 3D Scroll Effect -->
+  <div class="wrapper">
+    <div class="parallax-bg"></div>
+    <!-- ✅ Floating Particles -->
+    <div class="particles">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
 
-    <a href="https://github.com/Hamraj37/Project-Walla/releases" class="download-btn">Download Now</a>
+  <!-- ✅ Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-brand">WALLA</div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Live Wallpapers</a></li>
+      <li><a href="#">Creators</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="badge">NEW UPDATE</div>
+      <h1>UNLEASH YOUR <br><span class="highlight">VIBE</span></h1>
+      <p>The ultimate collection of 4K static and live wallpapers. Customize your device now.</p>
+
+      <a href="https://github.com/Hamraj37/Project-Walla/releases" class="download-btn">
+        Download App
+      </a>
+    </div>
 
     <!-- ✅ Android frame -->
     <div class="android-frame">
@@ -33,12 +62,101 @@
         <img src="img/screenshot3.png" alt="Screenshot 3" class="screenshot">
         <img src="img/screenshot4.png" alt="Screenshot 4" class="screenshot">
         <img src="img/screenshot5.png" alt="Screenshot 5" class="screenshot">
+        <!-- ✅ Duplicate first image for seamless loop -->
+        <img src="img/screenshot1.png" alt="Screenshot 1" class="screenshot">
       </div>
     </div>
-  </header>
+  </section>
+
+  <!-- ✅ Trending Section (Like Gaming News Feed) -->
+  <section class="showcase">
+    <h2 class="section-title">TRENDING NOW</h2>
+    <div class="grid-container">
+      <div class="card">
+        <img src="img/screenshot5.png" alt="Trending 1">
+        <div class="card-info">
+          <h3>LIVE WALLPAPERS</h3>
+          <p>Immersive 3D/4D backgrounds that react to touch.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="img/screenshot1.png" alt="Trending 2">
+        <div class="card-info">
+          <h3>ANIME COLLECTION</h3>
+          <p>Exclusive Naruto, Demon Slayer & One Piece art.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="img/screenshot3.png" alt="Trending 3">
+        <div class="card-info">
+          <h3>ABSTRACT ART</h3>
+          <p>Deep colors and modern vibes for your home screen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <footer>
-    <p>© 2025 Walla. All rights reserved.</p>
+    <p>© 2025 Walla. Designed for vibe.</p>
+    <a href="#" id="backToTop" class="footer-link">Back to Top ↑</a>
   </footer>
+  </div> <!-- End Wrapper -->
+
+  <!-- ✅ Scroll Effect Script -->
+  <script>
+    const wrapper = document.querySelector('.wrapper');
+    const navbar = document.querySelector('.navbar');
+
+    wrapper.addEventListener('scroll', () => {
+      if (wrapper.scrollTop > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Loader Logic
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('loader');
+      setTimeout(() => {
+        loader.style.opacity = '0';
+        setTimeout(() => {
+          loader.style.display = 'none';
+        }, 500);
+      }, 1000);
+    });
+
+    // Particle Interaction
+    document.addEventListener('mousemove', (e) => {
+      const particles = document.querySelectorAll('.particles span');
+      particles.forEach(p => {
+        const rect = p.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        
+        const deltaX = e.clientX - centerX;
+        const deltaY = e.clientY - centerY;
+        const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+        const radius = 150;
+
+        if (distance < radius) {
+          const force = (radius - distance) / radius;
+          const moveX = -deltaX * force * 2;
+          const moveY = -deltaY * force * 2;
+          p.style.setProperty('--dx', `${moveX}px`);
+          p.style.setProperty('--dy', `${moveY}px`);
+        } else {
+          p.style.setProperty('--dx', '0px');
+          p.style.setProperty('--dy', '0px');
+        }
+      });
+    });
+
+    // Back to Top Logic
+    document.getElementById('backToTop').addEventListener('click', (e) => {
+      e.preventDefault();
+      wrapper.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
 </body>
 </html>
