@@ -2,6 +2,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) var(--darker);
 }
 
 /* Variables for Gaming Theme */
@@ -10,6 +12,26 @@
   --dark: #0f0f0f;
   --darker: #050505;
   --text-gray: #b3b3b3;
+}
+
+/* Cyberpunk Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--darker);
+  border-left: 1px solid #333;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border: 2px solid var(--darker);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #fff;
+  box-shadow: 0 0 15px var(--primary);
 }
 
 body {
