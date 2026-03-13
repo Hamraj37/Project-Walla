@@ -21,6 +21,11 @@
   <div class="wrapper">
     <div class="parallax-bg"></div>
     
+    <div class="particles">
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+
  
 
   <section class="hero">
@@ -143,6 +148,14 @@
       e.preventDefault();
       wrapper.scrollTo({ top: 0, behavior: 'smooth' });
     });
+
+    // Matrix Glitch Characters
+    const glitchChars = "010101アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン";
+    setInterval(() => {
+      document.querySelectorAll('.particles span').forEach(span => {
+        span.innerText = glitchChars.charAt(Math.floor(Math.random() * glitchChars.length));
+      });
+    }, 100);
   </script>
 </body>
 </html>
