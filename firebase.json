@@ -6,7 +6,6 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ],
-    "errorPage": "/404.html" 
+    ]
   }
 }
