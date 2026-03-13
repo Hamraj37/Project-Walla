@@ -283,7 +283,6 @@ a.download-btn:hover {
   display: flex;
   width: 100%; height: 100%;
   /* Disabled manual scroll for auto slideshow */
-  overflow-x: hidden; 
   animation: slideshow 16s infinite cubic-bezier(0.45, 0, 0.55, 1);
 }
 
@@ -294,12 +293,12 @@ a.download-btn:hover {
 }
 
 @keyframes slideshow {
-  0%, 10% { transform: translateX(0); }
-  16%, 26% { transform: translateX(-100%); }
-  32%, 42% { transform: translateX(-200%); }
-  48%, 58% { transform: translateX(-300%); }
-  64%, 74% { transform: translateX(-400%); }
-  80%, 100% { transform: translateX(-500%); }
+  0%, 15% { transform: translateX(0); }
+  20%, 35% { transform: translateX(-100%); }
+  40%, 55% { transform: translateX(-200%); }
+  60%, 75% { transform: translateX(-300%); }
+  80%, 95% { transform: translateX(-400%); }
+  100% { transform: translateX(-500%); }
 }
 
 /* Trending Showcase Section */
