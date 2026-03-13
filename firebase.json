@@ -1,5 +1,6 @@
 {
-  "hosting": {
+ "hosting": {
+    "site": "walla",
     "public": ".",
     "ignore": [
       "firebase.json",
