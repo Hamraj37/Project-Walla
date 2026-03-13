@@ -36,7 +36,9 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: var(--darker);
+  background: linear-gradient(-45deg, #050505, #2e102e, #0f2e2e, #2e2e0f);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
   color: white;
   height: 100vh;
   overflow: hidden; /* Disable body scroll, move to wrapper */
@@ -92,7 +94,7 @@ body {
   height: 120%; /* Extra height for parallax movement */
   transform: translateZ(-10px) scale(2);
   z-index: -1;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.85), var(--dark)), url('../img/screenshot5.png');
+  background: linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(5,5,5,0.2)), url('../img/screenshot5.png');
   background-size: cover;
   background-position: center;
   pointer-events: none;
@@ -362,7 +364,8 @@ a.download-btn:hover {
 /* Trending Showcase Section */
 .showcase {
   padding: 4rem 10%;
-  background: var(--darker);
+  background: rgba(5, 5, 5, 0.8);
+  backdrop-filter: blur(10px);
   clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%); /* Slanted top edge */
   margin-top: -60px;
   padding-top: 100px;
@@ -528,6 +531,12 @@ footer {
 @keyframes fadeInDown {
   from { opacity: 0; transform: translateY(-50px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 @media (max-width: 900px) {
