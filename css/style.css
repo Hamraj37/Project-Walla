@@ -120,6 +120,14 @@ body {
   animation: matrixRain 15s linear infinite;
 }
 
+.particles span.paused {
+  animation-play-state: paused;
+  color: #fff;
+  text-shadow: 0 0 10px #fff, 0 0 20px var(--primary), 0 0 40px var(--primary);
+  opacity: 1 !important;
+  z-index: 5;
+}
+
 /* Randomize particle properties */
 .particles span:nth-child(1) { left: 10%; animation-duration: 12s; animation-delay: 0s; font-size: 16px; }
 .particles span:nth-child(2) { left: 20%; animation-duration: 18s; animation-delay: 2s; font-size: 24px; }

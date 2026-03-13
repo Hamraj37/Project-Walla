@@ -136,9 +136,11 @@
           const moveY = -deltaY * force * 2;
           p.style.setProperty('--dx', `${moveX}px`);
           p.style.setProperty('--dy', `${moveY}px`);
+          p.classList.add('paused');
         } else {
           p.style.setProperty('--dx', '0px');
           p.style.setProperty('--dy', '0px');
+          p.classList.remove('paused');
         }
       });
     });
