@@ -211,6 +211,19 @@ h1 {
   animation: fadeInDown 1s ease;
 }
 
+h1:hover {
+  animation: glitch-anim 0.3s infinite;
+}
+
+@keyframes glitch-anim {
+  0% { transform: translate(0); text-shadow: 4px 4px 0px rgba(0,0,0,0.5); }
+  20% { transform: translate(-2px, 2px); text-shadow: 2px 2px 0 #ff00de, -2px -2px 0 #00ffff; }
+  40% { transform: translate(-2px, -2px); text-shadow: 2px -2px 0 #ff00de, -2px 2px 0 #00ffff; }
+  60% { transform: translate(2px, 2px); text-shadow: -2px 2px 0 #ff00de, 2px -2px 0 #00ffff; }
+  80% { transform: translate(2px, -2px); text-shadow: -2px -2px 0 #ff00de, 2px 2px 0 #00ffff; }
+  100% { transform: translate(0); text-shadow: 4px 4px 0px rgba(0,0,0,0.5); }
+}
+
 .highlight {
   color: var(--primary);
 }
