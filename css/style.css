@@ -249,12 +249,6 @@ h1:hover .highlight::after {
   display: inline-block;
 }
 
-.highlight-t {
-  color: white;
-  position: relative;
-  display: inline-block;
-}
-
 .highlight::before,
 .highlight::after {
   content: attr(data-text);
