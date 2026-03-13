@@ -52,6 +52,12 @@
         <img src="img/screenshot1.png" alt="Screenshot 1" class="screenshot">
       </div>
     </div>
+
+    <!-- ✅ Scroll Indicator -->
+    <div class="scroll-indicator" id="scrollIndicator">
+      <span>EXPLORE</span>
+      <div class="arrow"></div>
+    </div>
   </section>
 
   <!-- ✅ Trending Section (Like Gaming News Feed) -->
@@ -116,6 +122,12 @@
     document.getElementById('backToTop').addEventListener('click', (e) => {
       e.preventDefault();
       wrapper.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Scroll to Explore Logic
+    document.getElementById('scrollIndicator').addEventListener('click', () => {
+      const showcase = document.querySelector('.showcase');
+      showcase.scrollIntoView({ behavior: 'smooth' });
     });
   </script>
 </body>
