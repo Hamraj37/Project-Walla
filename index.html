@@ -21,11 +21,6 @@
   <div class="wrapper">
     <div class="parallax-bg"></div>
     
-    <div class="particles">
-      <span></span><span></span><span></span><span></span><span></span><span></span>
-      <span></span><span></span><span></span><span></span><span></span><span></span>
-    </div>
-
  
 
   <section class="hero">
@@ -117,47 +112,11 @@
       }, 1000);
     });
 
-    // Particle Interaction
-    document.addEventListener('mousemove', (e) => {
-      const particles = document.querySelectorAll('.particles span');
-      particles.forEach(p => {
-        const rect = p.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-        
-        const deltaX = e.clientX - centerX;
-        const deltaY = e.clientY - centerY;
-        const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-        const radius = 150;
-
-        if (distance < radius) {
-          const force = (radius - distance) / radius;
-          const moveX = -deltaX * force * 2;
-          const moveY = -deltaY * force * 2;
-          p.style.setProperty('--dx', `${moveX}px`);
-          p.style.setProperty('--dy', `${moveY}px`);
-          p.classList.add('paused');
-        } else {
-          p.style.setProperty('--dx', '0px');
-          p.style.setProperty('--dy', '0px');
-          p.classList.remove('paused');
-        }
-      });
-    });
-
     // Back to Top Logic
     document.getElementById('backToTop').addEventListener('click', (e) => {
       e.preventDefault();
       wrapper.scrollTo({ top: 0, behavior: 'smooth' });
     });
-
-    // Matrix Glitch Characters
-    const glitchChars = "010101アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン";
-    setInterval(() => {
-      document.querySelectorAll('.particles span').forEach(span => {
-        span.innerText = glitchChars.charAt(Math.floor(Math.random() * glitchChars.length));
-      });
-    }, 100);
   </script>
 </body>
 </html>
