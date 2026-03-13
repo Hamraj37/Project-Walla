@@ -327,10 +327,10 @@ a.download-btn:hover {
 /* Camera */
 .camera {
   position: absolute;
-  top: 15px; left: 50%; transform: translateX(-50%);
-  width: 80px; height: 24px;
+  top: 10px; left: 50%; transform: translateX(-50%);
+  width: 24px; height: 24px;
   background: black;
-  border-radius: 12px;
+  border-radius: 50%;
   z-index: 5;
   display: flex; justify-content: center; align-items: center;
 }
