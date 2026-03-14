@@ -332,7 +332,7 @@ a.download-btn:hover {
   align-items: center;
   gap: 0.5rem;
   cursor: pointer;
-  z-index: 10;
+  z-index: 9;
   animation: bounce 2s infinite;
 }
 
