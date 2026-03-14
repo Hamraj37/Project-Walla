@@ -673,3 +673,81 @@ footer {
     transform: none; /* Disable 3D tilt on mobile */
   }
 }
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(5px);
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal.show {
+  display: flex;
+  opacity: 1;
+}
+
+.modal-content {
+  background: var(--darker);
+  border: 1px solid var(--primary);
+  border-radius: 8px;
+  padding: 2rem;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(255, 204, 0, 0.2);
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+}
+
+.modal.show .modal-content {
+  transform: scale(1);
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: var(--text-gray);
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close-modal:hover {
+  color: var(--primary);
+}
+
+#modalImage {
+  width: 100%;
+  max-height: 250px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+}
+
+#modalTitle {
+  font-family: 'Teko', sans-serif;
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+#modalDesc {
+  font-size: 1rem;
+  color: var(--text-gray);
+  line-height: 1.6;
+  margin: 0;
+}

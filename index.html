@@ -169,6 +169,16 @@
   </footer>
   </div> <!-- End Wrapper -->
 
+  <!-- ✅ Feature Modal -->
+  <div id="featureModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <img id="modalImage" src="" alt="Feature">
+      <h2 id="modalTitle">Title</h2>
+      <p id="modalDesc">Description goes here.</p>
+    </div>
+  </div>
+
   <!-- ✅ Scroll Effect Script -->
   <script type="module">
     const wrapper = document.querySelector('.wrapper');
@@ -204,6 +214,40 @@
       const showcase = document.querySelector('.showcase');
       showcase.scrollIntoView({ behavior: 'smooth' });
     });
+
+    // ✅ Modal Logic
+    const modal = document.getElementById('featureModal');
+    const modalImg = document.getElementById('modalImage');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
+    const closeModal = document.querySelector('.close-modal');
+    const cards = document.querySelectorAll('.card');
+
+    // Extended details for the modal view
+    const featureDetails = {
+      'WALLPAPERS': 'Dive into our massive collection of 3D and 4D static wallpapers. Every image is carefully curated to ensure maximum resolution and perfect aspect ratio for your device screen.',
+      'COLLECTION': 'Explore exclusive collections featuring Anime, Cyberpunk, Nature, Vehicles, and Abstract art. We update our galleries weekly to keep your aesthetic fresh.',
+      'LIVE WALLPAPERS': 'Experience dynamic backgrounds that react to your touch and device movement. Our live wallpapers are highly optimized to minimize battery drain while maximizing visual impact.',
+      'DEPTH WALLPAPERS': 'Transform your screen into a window with our multi-layered depth wallpapers. By utilizing your gyroscope, these backgrounds create a stunning parallax 3D effect.',
+      'SETTINGS': 'Take full control over your experience. Adjust motion sensitivity, blur effects, battery saving modes, and auto-change intervals directly from our intuitive settings menu.'
+    };
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        const title = card.querySelector('h3').innerText;
+        const shortDesc = card.querySelector('p').innerText;
+        const imgSrc = card.querySelector('img').src;
+
+        modalTitle.innerText = title;
+        modalDesc.innerText = featureDetails[title] || shortDesc; // Fallback to short desc if not found
+        modalImg.src = imgSrc;
+
+        modal.classList.add('show');
+      });
+    });
+
+    closeModal.addEventListener('click', () => modal.classList.remove('show'));
+    window.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('show'); });
   </script>
 </body>
 </html>
