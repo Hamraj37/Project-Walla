@@ -683,20 +683,36 @@ footer {
   text-align: center;
 }
 
-.footer-link {
-  display: inline-block;
-  margin-top: 1rem;
-  color: var(--primary);
+.back-to-top-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999;
+  background: var(--primary);
+  color: black;
+  padding: 0.8em 1.5em;
+  border-radius: 50px;
   text-decoration: none;
-  font-weight: 700;
-  letter-spacing: 1px;
+  font-weight: 800;
   text-transform: uppercase;
-  font-size: 0.8rem;
-  transition: opacity 0.3s;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
 }
 
-.footer-link:hover {
-  opacity: 0.7;
+.back-to-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top-btn:hover {
+  transform: translateY(-5px);
+  background: white;
+  box-shadow: 0 0 20px rgba(255, 204, 0, 0.4);
 }
 
 @keyframes fadeInDown {

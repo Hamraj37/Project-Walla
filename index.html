@@ -179,9 +179,11 @@
 
   <footer>
     <p>© 2025 Walla. Designed for vibe.</p>
-    <a href="#" id="backToTop" class="footer-link">Back to Top ↑</a>
   </footer>
   </div> <!-- End Wrapper -->
+
+  <!-- ✅ Floating Back to Top Button -->
+  <a href="#" id="backToTop" class="back-to-top-btn">Back to Top ↑</a>
 
   <!-- ✅ Feature Modal -->
   <div id="featureModal" class="modal">
@@ -197,12 +199,20 @@
   <script type="module">
     const wrapper = document.querySelector('.wrapper');
     const navbar = document.querySelector('.navbar');
+    const backToTopBtn = document.getElementById('backToTop');
 
     wrapper.addEventListener('scroll', () => {
       if (wrapper.scrollTop > 50) {
         navbar.classList.add('scrolled');
       } else {
         navbar.classList.remove('scrolled');
+      }
+      
+      // Show/hide floating Back to Top button
+      if (wrapper.scrollTop > 300) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
       }
     });
 
