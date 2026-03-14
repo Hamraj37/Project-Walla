@@ -296,7 +296,7 @@ a.download-btn:hover {
   /* 3D Tilt Effect */
   transform: perspective(1000px) rotateY(-15deg) rotateX(5deg);
   transition: transform 0.5s ease;
-  animation: phoneSlideIn 1s cubic-bezier(0.2, 0.8, 0.2, 1) 1.4s both, pulseGlow 3s infinite ease-in-out 2.4s;
+  animation: pulseGlow 3s infinite ease-in-out;
 }
 
 .android-frame:hover {
@@ -314,11 +314,6 @@ a.download-btn:hover {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.05) 40%, transparent 50%);
   pointer-events: none;
   z-index: 10;
-}
-
-@keyframes phoneSlideIn {
-  from { opacity: 0; transform: perspective(1000px) rotateY(-15deg) rotateX(5deg) translateX(150px); }
-  to { opacity: 1; transform: perspective(1000px) rotateY(-15deg) rotateX(5deg) translateX(0); }
 }
 
 @keyframes pulseGlow {
@@ -751,13 +746,7 @@ footer {
   h1 { font-size: 4rem; }
   .android-frame {
     transform: none; /* Disable 3D tilt on mobile */
-    animation: phoneSlideInMobile 1s cubic-bezier(0.2, 0.8, 0.2, 1) 1.4s both, pulseGlow 3s infinite ease-in-out 2.4s;
   }
-}
-
-@keyframes phoneSlideInMobile {
-  from { opacity: 0; transform: translateX(100px); }
-  to { opacity: 1; transform: none; }
 }
 
 /* Modal Styles */
