@@ -85,6 +85,8 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
   perspective: 10px;
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Prevents the sticky navbar from covering content when jumping to sections */
 }
 
 /* Parallax Background Layer */
@@ -156,6 +158,17 @@ body {
 .nav-links a:hover {
   color: var(--primary);
 }
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  color: white;
+  cursor: pointer;
+  transition: color 0.3s;
+  z-index: 10;
+}
+.hamburger:hover { color: var(--primary); }
 
 /* Hero Section */
 .hero {
@@ -666,7 +679,32 @@ footer {
     text-align: center;
     padding-top: 2rem;
   }
-  .nav-links { display: none; } /* Simplified mobile nav */
+  
+  .hamburger {
+    display: block;
+  }
+  
+  .nav-links { 
+    position: absolute;
+    top: 0;
+    right: -100%;
+    width: 250px;
+    min-height: 100vh;
+    height: auto;
+    background: rgba(5, 5, 5, 0.99);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: right 0.4s ease;
+    border-left: 1px solid var(--primary);
+    z-index: 9; /* Sits beneath the navbar (z-index: 10) */
+  }
+  .nav-links.active {
+    right: 0;
+    padding-top: 60px; /* Ensure content is below the navbar */
+    overflow-y: auto; /* Enable scrolling if content overflows */
+  }
+
   .hero-content { margin-bottom: 4rem; }
   h1 { font-size: 4rem; }
   .android-frame {

@@ -22,9 +22,21 @@
   <div class="wrapper">
     <div class="parallax-bg"></div>
     
- 
+    <!-- ✅ Navigation Bar -->
+    <nav class="navbar">
+      <div class="nav-brand">WALLA</div>
+      <div class="hamburger" id="hamburger">
+        <i class="fa fa-bars"></i>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
 
-  <section class="hero">
+  <section class="hero" id="home">
     <div class="hero-content">
       <div class="badge">NEW UPDATE</div>
       <h1>UNLEASH YOUR<br><span class="highlight" data-text="VIBE">VIBE</span></h1>
@@ -62,7 +74,7 @@
   </section>
 
   <!-- ✅ Trending Section (Like Gaming News Feed) -->
-  <section class="showcase">
+  <section class="showcase" id="features">
    <h2 class="section-title" data-text="Features">Features</h2>
     <div class="grid-container">
       <div class="card">
@@ -103,7 +115,7 @@
     </div>
   </section>
 
-  <div class="widget-content">
+  <div class="widget-content" id="about">
     <h2>About Walla</h2>
     <p>Walla isn't just another wallpaper app; it's a curated experience for your device. We believe that your phone's screen is a digital canvas that should reflect your unique personality and style.</p>
     
@@ -157,7 +169,7 @@
     <p style="margin-top:20px; opacity:0.8; font-size:0.9em;">Last Updated: January 2026</p>
   </div>
 
-  <div class="widget-content">
+  <div class="widget-content" id="contact">
     <h2 style="display:block; color:white; margin-bottom:15px; text-shadow:0 1px 2px rgba(0,0,0,0.1);">Contact Us</h2>
     <p>Have questions or feedback? We'd love to hear from you. Click the button below to send us an email.</p>
     <a href="mailto:skhamraj37@gmail.com" class="download-btn" style="margin-top: 1rem;">Contact Us</a>
@@ -191,6 +203,36 @@
         navbar.classList.remove('scrolled');
       }
     });
+
+    // ✅ Hamburger Menu Logic
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        // Toggle between hamburger and close icon
+        const icon = hamburger.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
+      });
+
+      // Close menu when a navigation link is clicked
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          navLinks.classList.remove('active');
+          hamburger.querySelector('i').classList.replace('fa-times', 'fa-bars');
+          
+          // Smooth scroll to target section
+          const targetId = link.getAttribute('href').substring(1);
+          const targetSection = document.getElementById(targetId);
+          if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
+    }
 
     // Loader Logic
     window.addEventListener('load', () => {
