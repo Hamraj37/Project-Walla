@@ -138,7 +138,7 @@
     <h3>4. Third-Party Services</h3>
     <p>Our app may use third-party services that may collect information used to identify you, such as Google AdMob or Analytics.</p>
     <h3>5. Contact Us</h3>
-    <p>If you have any questions about our Privacy Policy, please contact us via the form below.</p>
+    <p>If you have any questions about our Privacy Policy, please feel free to contact us.</p>
   </div>
 
   <div class="widget-content">
@@ -159,18 +159,8 @@
 
   <div class="widget-content">
     <h2 style="display:block; color:white; margin-bottom:15px; text-shadow:0 1px 2px rgba(0,0,0,0.1);">Contact Us</h2>
-    <div class="contact-form-widget">
-      <div class="form">
-        <form name="contact-form">
-          <input class="contact-form-name" id="ContactForm1_contact-form-name" name="name" placeholder="Name" size="30" type="text" value="">
-          <input class="contact-form-email" id="ContactForm1_contact-form-email" name="email" placeholder="Email" size="30" type="text" value="">
-          <textarea class="contact-form-email-message" cols="25" id="ContactForm1_contact-form-email-message" name="email-message" placeholder="Message" rows="5"></textarea>
-          <input class="contact-form-button contact-form-button-submit" id="ContactForm1_contact-form-submit" type="button" value="Send">
-          <div class="contact-form-error-message" id="ContactForm1_contact-form-error-message"></div>
-          <div class="contact-form-success-message" id="ContactForm1_contact-form-success-message"></div>
-        </form>
-      </div>
-    </div>
+    <p>Have questions or feedback? We'd love to hear from you. Click the button below to send us an email.</p>
+    <a href="mailto:skhamraj37@gmail.com" class="download-btn" style="margin-top: 1rem;">Contact Us</a>
   </div>
 
   <footer>
@@ -181,9 +171,6 @@
 
   <!-- ✅ Scroll Effect Script -->
   <script type="module">
-    import { db } from './config.js';
-    import { collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
     const wrapper = document.querySelector('.wrapper');
     const navbar = document.querySelector('.navbar');
 
@@ -216,71 +203,6 @@
     document.getElementById('scrollIndicator').addEventListener('click', () => {
       const showcase = document.querySelector('.showcase');
       showcase.scrollIntoView({ behavior: 'smooth' });
-    });
-
-    // Contact Form Logic
-    const sendBtn = document.getElementById('ContactForm1_contact-form-submit');
-    const nameInput = document.getElementById('ContactForm1_contact-form-name');
-    const emailInput = document.getElementById('ContactForm1_contact-form-email');
-    const messageInput = document.getElementById('ContactForm1_contact-form-email-message');
-    const successMsg = document.getElementById('ContactForm1_contact-form-success-message');
-    const errorMsg = document.getElementById('ContactForm1_contact-form-error-message');
-
-    sendBtn.addEventListener('click', async () => {
-      const nameVal = nameInput.value.trim();
-      const emailVal = emailInput.value.trim();
-      const msgVal = messageInput.value.trim();
-
-      if (nameVal === '' || emailVal === '' || msgVal === '') {
-        successMsg.innerHTML = '';
-        errorMsg.innerHTML = 'Please fill out all fields before sending.';
-        errorMsg.style.color = '#ff4d4d'; // Red error text
-        errorMsg.style.marginTop = '10px';
-      } else {
-        // Change button text to indicate loading
-        sendBtn.value = 'Sending...';
-        sendBtn.disabled = true;
-
-        try {
-          // Save message to Firestore 'mail' collection for the Trigger Email extension
-          await addDoc(collection(db, 'mail'), {
-            to: 'skhamraj37@gmail.com', // ⚠️ Replace with the email address you want to receive notifications at
-            message: {
-              subject: `New Contact Form Submission from ${nameVal}`,
-              html: `
-                <h3>New Message from Walla App</h3>
-                <p><strong>Name:</strong> ${nameVal}</p>
-                <p><strong>Email:</strong> ${emailVal}</p>
-                <p><strong>Message:</strong><br>${msgVal}</p>
-              `
-            },
-            senderName: nameVal,
-            senderEmail: emailVal,
-            senderMessage: msgVal,
-            timestamp: serverTimestamp()
-          });
-
-            errorMsg.innerHTML = '';
-            successMsg.innerHTML = 'Thanks for reaching out! Your message has been sent.';
-            successMsg.style.color = 'var(--primary)';
-            successMsg.style.marginTop = '10px';
-            
-            // Clear the form fields
-            nameInput.value = '';
-            emailInput.value = '';
-            messageInput.value = '';
-        } catch (error) {
-            successMsg.innerHTML = '';
-            errorMsg.innerHTML = 'Failed to send message. Please try again later.';
-            errorMsg.style.color = '#ff4d4d';
-            errorMsg.style.marginTop = '10px';
-            console.error('Firestore Error:', error);
-        } finally {
-          // Reset the button state
-          sendBtn.value = 'Send';
-          sendBtn.disabled = false;
-        }
-      }
     });
   </script>
 </body>
