@@ -197,6 +197,10 @@ body {
   margin-bottom: 1rem;
 }
 
+.hero-content .badge {
+  animation: fadeInDown 0.8s ease 1s both;
+}
+
 h1 {
   font-family: 'Teko', sans-serif;
   font-size: 5.5rem;
@@ -204,7 +208,7 @@ h1 {
   margin-bottom: 1rem;
   text-transform: uppercase;
   text-shadow: 4px 4px 0px rgba(0,0,0,0.5);
-  animation: fadeInDown 1s ease;
+  animation: fadeInDown 1s cubic-bezier(0.2, 0.8, 0.2, 1) 1.2s both;
 }
 
 h1:hover .highlight::before {
@@ -239,6 +243,10 @@ p {
   max-width: 450px;
 }
 
+.hero-content p {
+  animation: fadeInDown 1s cubic-bezier(0.2, 0.8, 0.2, 1) 1.4s both;
+}
+
 /* Skewed Gaming Button */
 a.download-btn {
   display: inline-block;
@@ -251,6 +259,10 @@ a.download-btn {
   letter-spacing: 1px;
   clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0% 100%, 0% 30%);
   transition: all 0.3s ease;
+}
+
+.hero-content .download-btn {
+  animation: fadeInDown 1s cubic-bezier(0.2, 0.8, 0.2, 1) 1.6s both;
 }
 
 a.download-btn:hover {
