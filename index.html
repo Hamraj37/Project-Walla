@@ -24,6 +24,7 @@
     
     <!-- ✅ Navigation Bar -->
     <nav class="navbar">
+      <div class="menu-overlay" id="menuOverlay"></div>
       <div class="nav-brand">WALLA</div>
       <div class="hamburger" id="hamburger">
         <i class="fa fa-bars"></i>
@@ -219,21 +220,33 @@
     // ✅ Hamburger Menu Logic
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
+    const menuOverlay = document.getElementById('menuOverlay');
 
     if (hamburger && navLinks) {
       hamburger.addEventListener('click', () => {
         navLinks.classList.toggle('active');
+        if (menuOverlay) menuOverlay.classList.toggle('active');
         // Toggle between hamburger and close icon
         const icon = hamburger.querySelector('i');
         icon.classList.toggle('fa-bars');
         icon.classList.toggle('fa-times');
       });
 
+      // Close menu when clicking the blurred overlay
+      if (menuOverlay) {
+        menuOverlay.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+          menuOverlay.classList.remove('active');
+          hamburger.querySelector('i').classList.replace('fa-times', 'fa-bars');
+        });
+      }
+
       // Close menu when a navigation link is clicked
       navLinks.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', (e) => {
           e.preventDefault();
           navLinks.classList.remove('active');
+          if (menuOverlay) menuOverlay.classList.remove('active');
           hamburger.querySelector('i').classList.replace('fa-times', 'fa-bars');
           
           // Smooth scroll to target section
@@ -325,6 +338,29 @@
 
     const featureCards = document.querySelectorAll('.feature-card');
     featureCards.forEach(card => cardObserver.observe(card));
+
+    // ✅ Active Nav Link on Scroll (Scrollspy)
+    const sections = document.querySelectorAll('section[id], div.widget-content[id]');
+    const navLinkElements = document.querySelectorAll('.nav-links a');
+
+    const scrollSpyObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                navLinkElements.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${id}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, {
+        root: wrapper,
+        rootMargin: '-25% 0px -75% 0px' // Defines a horizontal "activation line" 25% from the top of the viewport
+    });
+
+    sections.forEach(section => scrollSpyObserver.observe(section));
   </script>
 </body>
 </html>

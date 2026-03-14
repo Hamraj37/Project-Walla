@@ -159,6 +159,11 @@ body {
   color: var(--primary);
 }
 
+.nav-links a.active {
+  color: var(--primary);
+  text-shadow: 0 0 5px rgba(255, 204, 0, 0.7);
+}
+
 /* Hamburger Menu */
 .hamburger {
   display: none;
@@ -169,6 +174,10 @@ body {
   z-index: 10;
 }
 .hamburger:hover { color: var(--primary); }
+
+.menu-overlay {
+  display: none;
+}
 
 /* Hero Section */
 .hero {
@@ -737,6 +746,25 @@ footer {
     display: block;
   }
   
+  .menu-overlay {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 300%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    
+    z-index: 8; /* Sits beneath nav-links (9) and hamburger (10) */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+  }
+  .menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
   .nav-links { 
     position: absolute;
     top: 0;
