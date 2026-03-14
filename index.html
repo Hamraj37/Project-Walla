@@ -242,11 +242,21 @@
         sendBtn.disabled = true;
 
         try {
-          // Save message to Firestore 'contacts' collection
-          await addDoc(collection(db, 'contacts'), {
-            name: nameVal,
-            email: emailVal,
-            message: msgVal,
+          // Save message to Firestore 'mail' collection for the Trigger Email extension
+          await addDoc(collection(db, 'mail'), {
+            to: 'skhamraj37@gmail.com', // ⚠️ Replace with the email address you want to receive notifications at
+            message: {
+              subject: `New Contact Form Submission from ${nameVal}`,
+              html: `
+                <h3>New Message from Walla App</h3>
+                <p><strong>Name:</strong> ${nameVal}</p>
+                <p><strong>Email:</strong> ${emailVal}</p>
+                <p><strong>Message:</strong><br>${msgVal}</p>
+              `
+            },
+            senderName: nameVal,
+            senderEmail: emailVal,
+            senderMessage: msgVal,
             timestamp: serverTimestamp()
           });
 
