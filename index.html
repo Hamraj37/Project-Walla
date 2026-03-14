@@ -179,19 +179,11 @@
   </footer>
   </div> <!-- End Wrapper -->
 
-  <!-- ✅ Firebase Configuration -->
-  <script type="module" src="config.js"></script>
-
-  <!-- ✅ EmailJS SDK -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script type="text/javascript">
-    (function() {
-      emailjs.init("EuILvwf254dCV380S");
-    })();
-  </script>
-
   <!-- ✅ Scroll Effect Script -->
-  <script>
+  <script type="module">
+    import { db } from './config.js';
+    import { collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
     const wrapper = document.querySelector('.wrapper');
     const navbar = document.querySelector('.navbar');
 
@@ -234,7 +226,7 @@
     const successMsg = document.getElementById('ContactForm1_contact-form-success-message');
     const errorMsg = document.getElementById('ContactForm1_contact-form-error-message');
 
-    sendBtn.addEventListener('click', () => {
+    sendBtn.addEventListener('click', async () => {
       const nameVal = nameInput.value.trim();
       const emailVal = emailInput.value.trim();
       const msgVal = messageInput.value.trim();
@@ -249,14 +241,15 @@
         sendBtn.value = 'Sending...';
         sendBtn.disabled = true;
 
-        const templateParams = {
-          from_name: nameVal,
-          reply_to: emailVal,
-          message: msgVal
-        };
+        try {
+          // Save message to Firestore 'contacts' collection
+          await addDoc(collection(db, 'contacts'), {
+            name: nameVal,
+            email: emailVal,
+            message: msgVal,
+            timestamp: serverTimestamp()
+          });
 
-        emailjs.send('service_fffolzd', 'template_5dy2edm', templateParams)
-          .then(() => {
             errorMsg.innerHTML = '';
             successMsg.innerHTML = 'Thanks for reaching out! Your message has been sent.';
             successMsg.style.color = 'var(--primary)';
@@ -266,19 +259,17 @@
             nameInput.value = '';
             emailInput.value = '';
             messageInput.value = '';
-          })
-          .catch((error) => {
+        } catch (error) {
             successMsg.innerHTML = '';
             errorMsg.innerHTML = 'Failed to send message. Please try again later.';
             errorMsg.style.color = '#ff4d4d';
             errorMsg.style.marginTop = '10px';
-            console.error('EmailJS Error:', error);
-          })
-          .finally(() => {
-            // Reset the button state
-            sendBtn.value = 'Send';
-            sendBtn.disabled = false;
-          });
+            console.error('Firestore Error:', error);
+        } finally {
+          // Reset the button state
+          sendBtn.value = 'Send';
+          sendBtn.disabled = false;
+        }
       }
     });
   </script>
