@@ -450,9 +450,16 @@ a.download-btn:hover {
   border-radius: 8px;
   overflow: hidden;
   aspect-ratio: 9/16;
-  transition: transform 0.3s;
   cursor: pointer;
   border: 1px solid #333;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.6s ease-out, border-color 0.3s, box-shadow 0.3s;
+}
+
+.card.in-view {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .card:hover {
@@ -549,10 +556,17 @@ a.download-btn:hover {
   padding: 2rem;
   border-radius: 4px;
   text-align: center;
-  transition: all 0.3s ease;
   position: relative;
   /* Tech-style corner cut */
   clip-path: polygon(0 0, 100% 0, 100% 85%, 90% 100%, 0 100%);
+  opacity: 0;
+  transform: translateY(50px);
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.6s ease-out, border-color 0.3s, box-shadow 0.3s;
+}
+
+.feature-card.in-view {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .feature-card:hover {

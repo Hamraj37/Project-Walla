@@ -292,6 +292,29 @@
 
     closeModal.addEventListener('click', () => modal.classList.remove('show'));
     window.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('show'); });
+
+    // ✅ Intersection Observer for Feature Cards (Scroll Animation)
+    const cardObserverOptions = {
+      root: wrapper, // Uses our custom parallax wrapper as the scroll area
+      threshold: 0.1 // Triggers when at least 10% of the card is visible
+    };
+    
+    const cardObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          // Stagger the animation by 100ms per card in the batch
+          setTimeout(() => {
+            entry.target.classList.add('in-view');
+          }, index * 100); 
+          observer.unobserve(entry.target); // Stop observing once animated
+        }
+      });
+    }, cardObserverOptions);
+
+    cards.forEach(card => cardObserver.observe(card));
+
+    const featureCards = document.querySelectorAll('.feature-card');
+    featureCards.forEach(card => cardObserver.observe(card));
   </script>
 </body>
 </html>
