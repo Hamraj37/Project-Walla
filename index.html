@@ -17,23 +17,6 @@
   <!-- ✅ Parallax Wrapper for 3D Scroll Effect -->
   <div class="wrapper">
     <div class="parallax-bg"></div>
-    
-    <!-- ✅ Navigation Bar -->
-    <nav class="navbar">
-      <div class="menu-overlay" id="menuOverlay"></div>
-      <div class="nav-brand">WALLA</div>
-      <div class="hamburger" id="hamburger">
-        <i class="fa fa-bars"></i>
-      </div>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#privacy">Privacy</a></li>
-        <li><a href="#terms">Terms</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
 
   <section class="hero" id="home">
     <div class="hero-content">
@@ -182,6 +165,16 @@
   <!-- ✅ Floating Back to Top Button -->
   <a href="#" id="backToTop" class="back-to-top-btn"><i class="fa fa-arrow-up"></i></a>
 
+  <!-- ✅ Floating Button Nav -->
+  <nav class="button-nav" id="buttonNav">
+    <a href="#home" class="active"><i class="fa fa-home"></i><span>Home</span></a>
+    <a href="#features"><i class="fa fa-layer-group"></i><span>Features</span></a>
+    <a href="#about"><i class="fa fa-info-circle"></i><span>About</span></a>
+    <a href="#privacy"><i class="fa fa-shield-alt"></i><span>Privacy</span></a>
+    <a href="#terms"><i class="fa fa-file-contract"></i><span>Terms</span></a>
+    <a href="#contact"><i class="fa fa-envelope"></i><span>Contact</span></a>
+  </nav>
+
   <!-- ✅ Feature Modal -->
   <div id="featureModal" class="modal">
     <div class="modal-content">
@@ -195,55 +188,35 @@
   <!-- ✅ Scroll Effect Script -->
   <script type="module">
     const wrapper = document.querySelector('.wrapper');
-    const navbar = document.querySelector('.navbar');
     const backToTopBtn = document.getElementById('backToTop');
+    const buttonNav = document.getElementById('buttonNav');
+    let lastScrollY = 0;
 
     wrapper.addEventListener('scroll', () => {
-      if (wrapper.scrollTop > 50) {
-        navbar.classList.add('scrolled');
+      const currentScrollY = wrapper.scrollTop;
+
+      // Hide/Show floating nav based on scroll direction
+      if (currentScrollY > lastScrollY && currentScrollY > 50) {
+        buttonNav.classList.add('nav-hidden'); // Scrolling down
       } else {
-        navbar.classList.remove('scrolled');
+        buttonNav.classList.remove('nav-hidden'); // Scrolling up
       }
-      
+      lastScrollY = currentScrollY;
+
       // Show/hide floating Back to Top button
-      if (wrapper.scrollTop > 300) {
+      if (currentScrollY > 300) {
         backToTopBtn.classList.add('visible');
       } else {
         backToTopBtn.classList.remove('visible');
       }
     });
 
-    // ✅ Hamburger Menu Logic
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
-    const menuOverlay = document.getElementById('menuOverlay');
-
-    if (hamburger && navLinks) {
-      hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        if (menuOverlay) menuOverlay.classList.toggle('active');
-        // Toggle between hamburger and close icon
-        const icon = hamburger.querySelector('i');
-        icon.classList.toggle('fa-bars');
-        icon.classList.toggle('fa-times');
-      });
-
-      // Close menu when clicking the blurred overlay
-      if (menuOverlay) {
-        menuOverlay.addEventListener('click', () => {
-          navLinks.classList.remove('active');
-          menuOverlay.classList.remove('active');
-          hamburger.querySelector('i').classList.replace('fa-times', 'fa-bars');
-        });
-      }
-
-      // Close menu when a navigation link is clicked
-      navLinks.querySelectorAll('a').forEach(link => {
+    // ✅ Button Nav Logic
+    const navLinks = document.querySelectorAll('.button-nav a');
+    if (navLinks.length) {
+      navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
           e.preventDefault();
-          navLinks.classList.remove('active');
-          if (menuOverlay) menuOverlay.classList.remove('active');
-          hamburger.querySelector('i').classList.replace('fa-times', 'fa-bars');
           
           // Smooth scroll to target section
           const targetId = link.getAttribute('href').substring(1);
@@ -337,7 +310,7 @@
 
     // ✅ Active Nav Link on Scroll (Scrollspy)
     const sections = document.querySelectorAll('section[id], div.widget-content[id]');
-    const navLinkElements = document.querySelectorAll('.nav-links a');
+    const navLinkElements = document.querySelectorAll('.button-nav a');
 
     const scrollSpyObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {

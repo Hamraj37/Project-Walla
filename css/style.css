@@ -70,7 +70,7 @@ body {
   overflow-x: hidden;
   perspective: 10px;
   scroll-behavior: smooth;
-  scroll-padding-top: 80px; /* Prevents the sticky navbar from covering content when jumping to sections */
+  scroll-padding-bottom: 100px; /* Prevents the bottom navbar from covering content when jumping to sections */
 }
 
 /* Parallax Background Layer */
@@ -86,82 +86,56 @@ body {
   pointer-events: none;
 }
 
-/* Navbar */
-.navbar {
+/* Floating Button Nav */
+.button-nav {
+  position: fixed;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 10%;
-  position: sticky;
-  top: 0;
-  width: 100%;
-  z-index: 10;
-  backdrop-filter: blur(12px);
-  transition: background-color 0.3s, padding 0.3s, box-shadow 0.3s;
+  gap: 0.5rem;
+  background: rgba(15, 15, 15, 0.85);
+  backdrop-filter: blur(15px);
+  padding: 0.5rem;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 204, 0, 0.2);
+  z-index: 1000;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease-in-out;
 }
 
-/* Navbar Scrolled State */
-.navbar.scrolled {
-  background-color: rgba(5, 5, 5, 0.95);
-  padding: 1rem 10%;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-  border-bottom: 1px solid rgba(255, 204, 0, 0.1);
+.button-nav.nav-hidden {
+  transform: translate(-50%, 150%); /* Moves down while maintaining horizontal centering */
 }
 
-.nav-brand {
-  font-family: 'Teko', sans-serif;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: white;
-  letter-spacing: 2px;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-  transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-
-/* Change logo color when scrolled */
-.navbar.scrolled .nav-brand {
-  color: var(--primary);
-  text-shadow: 0 0 20px var(--primary);
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 2.5rem;
-}
-
-.nav-links a {
+.button-nav a {
   color: white;
   text-decoration: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 40px;
   font-weight: 600;
+  font-size: 0.85rem;
   text-transform: uppercase;
-  font-size: 0.9rem;
   letter-spacing: 1px;
-  transition: color 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
 }
 
-.nav-links a:hover {
+.button-nav a i {
+  font-size: 1.1rem;
+}
+
+.button-nav a:hover {
+  background: rgba(255, 255, 255, 0.1);
   color: var(--primary);
 }
 
-.nav-links a.active {
-  color: var(--primary);
-  text-shadow: 0 0 5px rgba(255, 204, 0, 0.7);
-}
-
-/* Hamburger Menu */
-.hamburger {
-  display: none;
-  font-size: 1.8rem;
-  color: white;
-  cursor: pointer;
-  transition: color 0.3s;
-  z-index: 10;
-}
-.hamburger:hover { color: var(--primary); }
-
-.menu-overlay {
-  display: none;
+.button-nav a.active {
+  background: var(--primary);
+  color: black;
+  box-shadow: 0 0 15px rgba(255, 204, 0, 0.5);
 }
 
 /* Hero Section */
@@ -669,7 +643,7 @@ a.download-btn:hover {
 
 footer {
   margin: 0;
-  padding: 3rem;
+  padding: 3rem 3rem 6rem; /* Extra padding to prevent footer getting hidden by floating nav */
   background: var(--darker);
   color: var(--text-gray);
   font-size: 0.9em;
@@ -678,7 +652,7 @@ footer {
 
 .back-to-top-btn {
   position: fixed;
-  bottom: 30px;
+  bottom: 100px; /* Moved up to avoid overlap with new button nav */
   right: 30px;
   z-index: 999;
   background: var(--primary);
@@ -727,68 +701,24 @@ footer {
     padding-top: 2rem;
   }
   
-  .hamburger {
-    display: block;
+  .button-nav {
+    width: auto;
+    max-width: 95%;
+    overflow-x: auto;
+    justify-content: center;
   }
   
-  .menu-overlay {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 300%;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.6);
-    
-    z-index: 8; /* Sits beneath nav-links (9) and hamburger (10) */
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.4s ease;
-  }
-  .menu-overlay.active {
-    opacity: 1;
-    visibility: visible;
+  .button-nav a {
+    padding: 0.8rem 1.2rem;
   }
 
-  .nav-links { 
-    position: absolute;
-    top: 0;
-    right: -100%;
-    width: 250px;
-    min-height: 100vh;
-    height: auto;
-    background: rgba(5, 5, 5, 0.99);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: right 0.4s ease;
-    border-left: 1px solid var(--primary);
-    z-index: 9; /* Sits beneath the navbar (z-index: 10) */
-  }
-  .nav-links.active {
-    right: 0;
-    padding-top: 60px; /* Ensure content is below the navbar */
-    overflow-y: auto; /* Enable scrolling if content overflows */
+  .button-nav a span {
+    display: none; /* Creates a clean, app-like icon dock on mobile */
   }
 
-  .nav-links li {
-    opacity: 0;
-    transform: translateX(50px);
-    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  .button-nav a i {
+    font-size: 1.3rem;
   }
-
-  .nav-links.active li {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
-  /* Staggered animation delay for each link */
-  .nav-links.active li:nth-child(1) { transition-delay: 0.15s; }
-  .nav-links.active li:nth-child(2) { transition-delay: 0.20s; }
-  .nav-links.active li:nth-child(3) { transition-delay: 0.25s; }
-  .nav-links.active li:nth-child(4) { transition-delay: 0.30s; }
-  .nav-links.active li:nth-child(5) { transition-delay: 0.35s; }
-  .nav-links.active li:nth-child(6) { transition-delay: 0.40s; }
 
   .hero-content { margin-bottom: 4rem; }
   h1 { font-size: 4rem; }
