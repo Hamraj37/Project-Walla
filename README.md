@@ -18,7 +18,6 @@ Add a unique touch with customizable effects:
 - **Glass Ridges**: Add a sophisticated "glassmorphism" look
 - **Snowfall**: Create a cozy winter vibe with adjustable snow intensity
 - **Emoji Overlays**: Add your favorite emojis or create a fun "Emoji Rain" animation
-- **Blur Control**: Soften any wallpaper to make your app icons stand out
 
 ### 🌈 Modern & Material Design
 Walla is built with a sleek, modern interface that supports "Material You" aesthetics, ensuring a seamless experience that looks great on any Android device.
