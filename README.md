@@ -2,6 +2,19 @@
 
 Experience the ultimate personalization with **Walla**, your all-in-one destination for high-quality wallpapers and creative design tools. Whether you want to browse curated HD backgrounds or design your own unique look from scratch, Walla gives you the power to make your screen truly yours.
 
+## 📸 Screenshots
+
+| Feature | Preview |
+|---------|---------|
+| Gradient Maker | [Screenshot coming soon] |
+| Live Wallpapers | [Screenshot coming soon] |
+| Collections | [Screenshot coming soon] |
+| Effects & Overlays | [Screenshot coming soon] |
+
+*Add your app screenshots here to showcase the UI and features*
+
+---
+
 ## ✨ Key Features
 
 ### 🎨 Powerful Gradient Maker
@@ -38,12 +51,27 @@ Download your favorite wallpapers directly to your gallery or save your custom c
 - Material Design
 - Gradle Build System
 
+### System Requirements
+- Android 8.0 (API Level 26) or higher
+- Minimum 100MB free storage space
+  
 ## 📧 Contact & Support
 
-For support, feature requests, or bug reports, please open an issue on GitHub or visit our website https://walla.web.app
+Have questions, feature requests, or found a bug?
 
+- 🐛 **Bug Reports & Issues**: [Open an Issue](https://github.com/Hamraj37/Project-Walla/issues)
+- 💬 **Feature Requests**: [Discussions](https://github.com/Hamraj37/Project-Walla/discussions)
+- 🌐 **Website**: https://walla.web.app
+- 📧 **Email**: skhamraj37@gmail.com
+  
 ---
 
 **Transform your phone into a canvas of colors. Download Walla today and start creating!** 🎨✨
 
 [![Download from GitHub](https://img.shields.io/badge/Download-GitHub-black?style=for-the-badge&logo=github)](https://github.com/Hamraj37/Project-Walla/releases)
+[![Website](https://img.shields.io/badge/Website-Visit-blue?style=for-the-badge)](https://walla.web.app)
+[![Issues](https://img.shields.io/badge/Issues-Open-red?style=for-the-badge)](https://github.com/Hamraj37/Project-Walla/issues)
+
+---
+
+Made with ❤️ by the Walla Team
