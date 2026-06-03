@@ -39,14 +39,6 @@ Download your favorite wallpapers directly to your gallery or save your custom c
 - Material Design
 - Gradle Build System
 
-## 📝 License
-
-This project is licensed under the [LICENSE](LICENSE) file - see the file for details.
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
 ## 📧 Contact & Support
 
 For support, feature requests, or bug reports, please open an issue on GitHub or visit our website https://walla.web.app
