@@ -11,6 +11,7 @@ Experience the ultimate personalization with **Walla**, your all-in-one destinat
 | **Collections** | <img src="https://raw.githubusercontent.com/Hamraj37/Project-Walla/refs/heads/main/img/screenshot2.png" width="220" alt="Collections"> |
 | **Depth Wallpapers** | <img src="https://raw.githubusercontent.com/Hamraj37/Project-Walla/refs/heads/main/img/screenshot4.png" width="220" alt="Depth Wallpapers"> |
 
+
 ---
 
 ## ✨ Key Features
