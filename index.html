@@ -37,14 +37,17 @@
         <div class="camera-dot"></div>
       </div>
 
-      <div class="screen-scroll">
-        <img src="img/screenshot1.png" alt="Screenshot 1" class="screenshot">
-        <img src="img/screenshot2.png" alt="Screenshot 2" class="screenshot">
-        <img src="img/screenshot3.png" alt="Screenshot 3" class="screenshot">
-        <img src="img/screenshot4.png" alt="Screenshot 4" class="screenshot">
-        <img src="img/screenshot5.png" alt="Screenshot 5" class="screenshot">
-        <!-- ✅ Duplicate first image for seamless loop -->
-        <img src="img/screenshot1.png" alt="Screenshot 1" class="screenshot">
+      <!-- ✅ Inner wrapper to explicitly clip screen corners and fix Safari 3D overflow bugs -->
+      <div class="screen-wrapper">
+        <div class="screen-scroll">
+          <img src="img/screenshot1.png" alt="Screenshot 1" class="screenshot">
+          <img src="img/screenshot2.png" alt="Screenshot 2" class="screenshot">
+          <img src="img/screenshot3.png" alt="Screenshot 3" class="screenshot">
+          <img src="img/screenshot4.png" alt="Screenshot 4" class="screenshot">
+          <img src="img/screenshot5.png" alt="Screenshot 5" class="screenshot">
+          <!-- ✅ Duplicate first image for seamless loop -->
+          <img src="img/screenshot1.png" alt="Screenshot 1" class="screenshot">
+        </div>
       </div>
     </div>
 

@@ -254,10 +254,12 @@ a.download-btn:hover {
 /* Android phone mockup - Darker & Tilted */
 .android-frame {
   position: relative;
-  width: 300px;
-  height: 600px;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  aspect-ratio: 9 / 19;
   border: 4px solid #333; /* Thinner modern bezel */
-  border-radius: 35px;
+  border-radius: 20px;
   background: #000;
   margin: 0;
   overflow: hidden;
@@ -283,6 +285,7 @@ a.download-btn:hover {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.05) 40%, transparent 50%);
   pointer-events: none;
   z-index: 10;
+  border-radius: 20px;
 }
 
 @keyframes pulseGlow {
@@ -338,6 +341,16 @@ a.download-btn:hover {
 }
 .camera-lens { width: 10px; height: 10px; background: #1a1a1a; border-radius: 50%; }
 .camera-dot { display: none; }
+
+/* Screen Wrapper ensures corners are clipped correctly during 3D transform */
+.screen-wrapper {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  border-radius: 16px; /* 20px outer radius - 4px border */
+  overflow: hidden;
+  z-index: 1;
+  -webkit-mask-image: -webkit-radial-gradient(white, black); /* WebKit bug fix */
+}
 
 /* Animation Logic */
 .screen-scroll {
@@ -438,7 +451,7 @@ a.download-btn:hover {
 
 .card {
   position: relative;
-  border-radius: 8px;
+  border-radius: 20px;
   overflow: hidden;
   aspect-ratio: 9/16;
   cursor: pointer;
@@ -725,6 +738,8 @@ footer {
   h1 { font-size: 4rem; }
   .android-frame {
     transform: none; /* Disable 3D tilt on mobile */
+    max-width: 250px; /* Scale down slightly on mobile */
+    margin: 0 auto; /* Ensure it stays perfectly centered */
   }
 }
 
