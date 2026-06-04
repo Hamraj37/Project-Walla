@@ -11,8 +11,6 @@ Experience the ultimate personalization with **Walla**, your all-in-one destinat
 | **Collections** | <img src="https://raw.githubusercontent.com/Hamraj37/Project-Walla/refs/heads/main/img/screenshot2.png" width="220" alt="Collections"> |
 | **Depth Wallpapers** | <img src="https://raw.githubusercontent.com/Hamraj37/Project-Walla/refs/heads/main/img/screenshot4.png" width="220" alt="Depth Wallpapers"> |
 
-> 💡 *Note: You can adjust the `width="220"` value up or down (e.g., to `180` or `250`) to perfectly fit your preferences.*
-
 ---
 
 ## ✨ Key Features
