@@ -6,7 +6,7 @@ Experience the ultimate personalization with **Walla**, your all-in-one destinat
 
 | Feature | Preview |
 |---------|---------|
-| Gradient Maker | [Screenshot coming soon] |
+| Gradient Maker | [https://raw.githubusercontent.com/Hamraj37/Project-Walla/refs/heads/main/img/screenshot1.png] |
 | Live Wallpapers | [Screenshot coming soon] |
 | Collections | [Screenshot coming soon] |
 | Effects & Overlays | [Screenshot coming soon] |
