@@ -6,10 +6,12 @@ Experience the ultimate personalization with **Walla**, your all-in-one destinat
 
 | Feature | Preview |
 |---------|---------|
-| Gradient Maker | ![Gradient Maker](https://raw.githubusercontent.com/Hamraj37/Project-Walla/refs/heads/main/img/screenshot1.png) |
-| Live Wallpapers | ![Live Wallpapers](https://raw.githubusercontent.com/Hamraj37/Project-Walla/refs/heads/main/img/screenshot3.png) |
-| Collections | ![Collections](https://raw.githubusercontent.com/Hamraj37/Project-Walla/refs/heads/main/img/screenshot2.png) |
-| Depth Wallpapers | ![Depth Wallpapers](https://raw.githubusercontent.com/Hamraj37/Project-Walla/refs/heads/main/img/screenshot4.png) |
+| **Gradient Maker** | <img src="https://raw.githubusercontent.com/Hamraj37/Project-Walla/refs/heads/main/img/screenshot1.png" width="220" alt="Gradient Maker"> |
+| **Live Wallpapers** | <img src="https://raw.githubusercontent.com/Hamraj37/Project-Walla/refs/heads/main/img/screenshot3.png" width="220" alt="Live Wallpapers"> |
+| **Collections** | <img src="https://raw.githubusercontent.com/Hamraj37/Project-Walla/refs/heads/main/img/screenshot2.png" width="220" alt="Collections"> |
+| **Depth Wallpapers** | <img src="https://raw.githubusercontent.com/Hamraj37/Project-Walla/refs/heads/main/img/screenshot4.png" width="220" alt="Depth Wallpapers"> |
+
+> 💡 *Note: You can adjust the `width="220"` value up or down (e.g., to `180` or `250`) to perfectly fit your preferences.*
 
 ---
 
