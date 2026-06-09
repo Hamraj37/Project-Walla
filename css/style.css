@@ -80,9 +80,13 @@ body {
   height: 120%; /* Extra height for parallax movement */
   transform: translateZ(-10px) scale(2);
   z-index: -1;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(5,5,5,0.2)), url('../img/logo.png');
-  background-size: cover;
-  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Teko', sans-serif;
+  font-size: 25vw;
+  color: rgba(255, 255, 255, 0.05);
+  letter-spacing: 20px;
   pointer-events: none;
 }
 
