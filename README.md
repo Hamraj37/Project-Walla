@@ -6,12 +6,11 @@ Experience the ultimate personalization with **Walla**, your all-in-one destinat
 
 | Feature | Preview |
 |---------|---------|
-| Gradient Maker | [Screenshot coming soon] |
-| Live Wallpapers | [Screenshot coming soon] |
-| Collections | [Screenshot coming soon] |
-| Effects & Overlays | [Screenshot coming soon] |
+| **Gradient Maker** | <img src="https://raw.githubusercontent.com/Hamraj37/Project-Walla/refs/heads/main/img/screenshot1.png" width="220" alt="Gradient Maker"> |
+| **Live Wallpapers** | <img src="https://raw.githubusercontent.com/Hamraj37/Project-Walla/refs/heads/main/img/screenshot3.png" width="220" alt="Live Wallpapers"> |
+| **Collections** | <img src="https://raw.githubusercontent.com/Hamraj37/Project-Walla/refs/heads/main/img/screenshot2.png" width="220" alt="Collections"> |
+| **Depth Wallpapers** | <img src="https://raw.githubusercontent.com/Hamraj37/Project-Walla/refs/heads/main/img/screenshot4.png" width="220" alt="Depth Wallpapers"> |
 
-*Add your app screenshots here to showcase the UI and features*
 
 ---
 
