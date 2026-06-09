@@ -88,6 +88,16 @@ body {
   color: rgba(255, 255, 255, 0.05);
   letter-spacing: 20px;
   pointer-events: none;
+  animation: rotateText 60s linear infinite;
+}
+
+@keyframes rotateText {
+  from {
+    transform: translateZ(-10px) scale(2) rotate(0deg);
+  }
+  to {
+    transform: translateZ(-10px) scale(2) rotate(360deg);
+  }
 }
 
 /* Floating Button Nav */
