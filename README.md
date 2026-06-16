@@ -27,7 +27,6 @@
 <p align="center">
   <img src="https://raw.githubusercontent.com/Hamraj37/Project-Walla/refs/heads/main/img/screenshot1.png" width="30%" />
   <img src="https://raw.githubusercontent.com/Hamraj37/Project-Walla/refs/heads/main/img/screenshot3.png" width="30%" />
-  <img src="https://raw.githubusercontent.com/Hamraj37/Project-Walla/refs/heads/main/img/screenshot2.png" width="30%" />
   <img src="https://raw.githubusercontent.com/Hamraj37/Project-Walla/refs/heads/main/img/screenshot4.png" width="30%" />
 </p>
 
