@@ -66,7 +66,7 @@ All wallpapers in this app are collected from various online sources such as Pin
 **Transform your phone into a work of art. Download Walla today!** 🎨✨
 
 
-[![Download](https://img.shields.io/badge/Download-GitHub-black?style=for-the-badge&logo=github)](https://github.com/Hamraj37/Project-Walla/releases)
+[![Download](https://img.shields.io/badge/Download-GitHub-black?style=for-the-badge)](https://github.com/Hamraj37/Project-Walla/releases)
 [![Website](https://img.shields.io/badge/Website-blue?logo=google-chrome&logoColor=white)](https://walla.web.app)
 [![Issues](https://img.shields.io/badge/Issues-Open-red?style=for-the-badge)](https://github.com/Hamraj37/Project-Walla/issues)
 
