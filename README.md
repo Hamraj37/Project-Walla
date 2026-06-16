@@ -24,8 +24,6 @@
 *   **User Accounts:** Sync your preferences and favorites across devices with Firebase-powered authentication.
 ## 📸 Screenshots
 
-| Feature | Preview |
-
 <p align="center">
   <img src="https://raw.githubusercontent.com/Hamraj37/Project-Walla/refs/heads/main/img/screenshot1.png" width="30%" />
   <img src="https://raw.githubusercontent.com/Hamraj37/Project-Walla/refs/heads/main/img/screenshot3.png" width="30%" />
