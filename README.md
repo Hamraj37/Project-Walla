@@ -2,8 +2,6 @@
 
 **Walla** is a modern Android application designed to give you total control over your device's aesthetics. From curated HD collections to powerful creation tools, Walla transforms your screen into a personalized canvas.
 
-Developed with ❤️ by **Hamraj37**.
-
 ## ✨ Key Features
 
 ### 🌈 Creative Creation Tools
@@ -74,4 +72,4 @@ All wallpapers in this app are collected from various online sources such as Pin
 
 ---
 
-Made with ❤️ by the Walla Team
+Developed with ❤️ by **Hamraj37**.
