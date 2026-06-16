@@ -1,7 +1,29 @@
-# 🎨 Walla - Personalized Wallpaper & Design App
+# 🎨 Walla - Ultimate Wallpaper & Personalization App
 
-Experience the ultimate personalization with **Walla**, your all-in-one destination for high-quality wallpapers and creative design tools. Whether you want to browse curated HD backgrounds or design your own unique look from scratch, Walla gives you the power to make your screen truly yours.
+**Walla** is a modern Android application designed to give you total control over your device's aesthetics. From curated HD collections to powerful creation tools, Walla transforms your screen into a personalized canvas.
 
+Developed with ❤️ by **Hamraj37**.
+
+## ✨ Key Features
+
+### 🌈 Creative Creation Tools
+*   **Powerful Gradient Maker:** Design professional-grade gradient wallpapers. Choose your colors, adjust rotation angles, and create the perfect blend.
+*   **Video Wallpapers:** Use the "Pick Video" feature to set your favorite videos as immersive live wallpapers.
+*   **3D Depth Effects:** Apply stunning 3D effects to depth-based wallpapers for a truly dynamic look.
+
+### 🖼️ Curated Collections
+*   **HD Wallpapers:** Explore a vast library of high-quality wallpapers across multiple categories, curated from top sources like Pinterest.
+*   **Live Wallpaper Support:** Set live wallpapers with options for looping and sound.
+
+### ❄️ Advanced Customization & Effects
+*   **Glassmorphism & Blurs:** Add sophisticated glass textures or soften backgrounds to make your icons pop.
+*   **Dynamic Overlays:** Add effects like snowfall or interactive textures to any background.
+*   **Cache Management:** Keep your app running smoothly with built-in cache clearing tools.
+
+### 📱 Modern User Experience
+*   **Material 3 UI:** A sleek, intuitive interface following the latest Material Design guidelines.
+*   **Material You Colors:** Supports dynamic color themes that adapt to your wallpaper.
+*   **User Accounts:** Sync your preferences and favorites across devices with Firebase-powered authentication.
 ## 📸 Screenshots
 
 | Feature | Preview |
@@ -14,58 +36,37 @@ Experience the ultimate personalization with **Walla**, your all-in-one destinat
 
 ---
 
-## ✨ Key Features
-
-### 🎨 Powerful Gradient Maker
-Design professional-grade gradient wallpapers in seconds. Choose up to three colors, adjust the rotation angle, and create the perfect blend to match your style.
-
-### ✨ Animated Live Wallpapers
-Bring your screen to life! Use dynamic gradients that shift colors over time, or add moving effects like falling snow and interactive glass textures.
-
-### 🖼️ HD Categorized Collections
-Explore a vast and growing library of wallpapers across multiple categories. From minimal designs to vibrant art, find the perfect backdrop for your home and lock screens.
-
-### ❄️ Creative Overlays & Effects
-Add a unique touch with customizable effects:
-- **Glass Ridges**: Add a sophisticated "glassmorphism" look
-- **Snowfall**: Create a cozy winter vibe with adjustable snow intensity
-- **Emoji Overlays**: Add your favorite emojis or create a fun "Emoji Rain" animation
-
-### 🌈 Modern & Material Design
-Walla is built with a sleek, modern interface that supports "Material You" aesthetics, ensuring a seamless experience that looks great on any Android device.
-
-### 💾 Save & Sync
-Download your favorite wallpapers directly to your gallery or save your custom creations within the app for quick access later.
-
-## 💡 Why Walla?
-
-- **Total Control**: You aren't just picking a wallpaper; you're creating one
-- **Live Previews**: See exactly how your changes look in real-time before applying
-- **Fresh Content**: New wallpapers and categories added regularly
-- **Intuitive Design**: Built with Material You for a seamless user experience
-
 ## 🛠️ Tech Stack
 
-- Android (Kotlin/Java)
-- Material Design
-- Gradle Build System
+*   **Language:** Java / Kotlin
+*   **UI Framework:** XML Layouts with Material Design 3
+*   **Backend:** Firebase (Authentication, Realtime Database, Cloud Storage)
+*   **Image Loading:** Glide
+*   **Ad Integration:** Unity Ads & Google AdMob
+*   **Extras:** BlurView for real-time blurring effects, ViewBinding for efficient UI interaction.
 
-### System Requirements
-- Android 8.0 (API Level 26) or higher
-- Minimum 100MB free storage space
-  
-## 📧 Contact & Support
+## 📥 How to Use
 
-Have questions, feature requests, or found a bug?
+1.  **Browse:** Scroll through the home feed to find curated wallpapers.
+2.  **Create:** Tap "Make Gradient" to design your own unique background.
+3.  **Animate:** Use "Pick Video" to set a dynamic video wallpaper.
+4.  **Customize:** Open the Bottom Sheet menu to toggle 3D effects, sound, or looping for live wallpapers.
 
-- 🐛 **Bug Reports & Issues**: [Open an Issue](https://github.com/Hamraj37/Project-Walla/issues)
-- 💬 **Feature Requests**: [Discussions](https://github.com/Hamraj37/Project-Walla/discussions)
-- 🌐 **Website**: https://walla.web.app
-- 📧 **Email**: skhamraj37@gmail.com
-  
+## 🤝 Connect with the Developer
+
+Have questions or suggestions? Reach out via:
+*   **Telegram:** [DM on Telegram](https://t.me/hamraj37)
+*   **Instagram:** [@hamraj37](https://instagram.com/hamraj37)
+*   **GitHub:** [Hamraj37](https://github.com/hamraj37)
+
+## ⚖️ Disclaimer
+
+All wallpapers in this app are collected from various online sources such as Pinterest. Credits go to their respective owners. If you are the owner of any content and wish for its removal, please contact me.
+
 ---
 
-**Transform your phone into a canvas of colors. Download Walla today and start creating!** 🎨✨
+**Transform your phone into a work of art. Download Walla today!** 🎨✨
+
 
 [![Download from GitHub](https://img.shields.io/badge/Download-GitHub-black?style=for-the-badge&logo=github)](https://github.com/Hamraj37/Project-Walla/releases)
 [![Website](https://img.shields.io/badge/Website-Visit-blue?style=for-the-badge)](https://walla.web.app)
